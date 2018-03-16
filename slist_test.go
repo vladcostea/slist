@@ -91,10 +91,10 @@ func TestFindsAnItem(t *testing.T) {
 }
 
 func TestCustomOnEqual(t *testing.T) {
-	replacer := func(node *Node, item NodeItem) {
+	list := NewSList()
+	list.OnEqual(func(node *Node, item NodeItem) {
 		node.item = item
-	}
-	list := NewSListWithOnEqualHandler(replacer)
+	})
 	list.Insert(testItem{5, 50})
 	list.Insert(testItem{7, 70})
 	list.Insert(testItem{3, 30})

@@ -29,15 +29,15 @@ func (l *SList) Head() *Node {
 	return l.head
 }
 
+func (l *SList) OnEqual(handler onEqualHandler) {
+	l.onEqual = handler
+}
+
 func onEqual(node *Node, item NodeItem) {
 }
 
 func NewSList() *SList {
 	return &SList{onEqual: onEqual}
-}
-
-func NewSListWithOnEqualHandler(handler onEqualHandler) *SList {
-	return &SList{onEqual: handler}
 }
 
 func (l *SList) IsEmpty() bool {
